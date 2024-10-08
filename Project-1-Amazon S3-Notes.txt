@@ -1,0 +1,62 @@
+##################################################################################
+##### Let's Do it with Automatically and upload the backup  to Amazon S3 #####
+##################################################################################
+
+
+- Create a user (s3-bash-user) with the Permission policy "AmazonS3FullAccess"
+- Create an IAM role (s3-bash-role) with the Permission policy "AmazonS3FullAccess" and "AmazonSSMFullAccess"
+- Attach the IAM role to the EC2 instance
+
+
+ubuntu@AWS-Server:~$ mkdir aws-cli
+
+ubuntu@AWS-Server:~$ cd aws-cli/
+
+ubuntu@AWS-Server:~/aws-cli$ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 55.8M  100 55.8M    0     0   131M      0 --:--:-- --:--:-- --:--:--  131M
+
+ubuntu@AWS-Server:~/aws-cli$ sudo apt install unzip
+
+ubuntu@AWS-Server:~/aws-cli$ unzip awscliv2.zip
+
+ubuntu@AWS-Server:~/aws-cli$ sudo ./aws/install
+You can now run: /usr/local/bin/aws --version
+
+ubuntu@AWS-Server:~/aws-cli$ aws --version
+aws-cli/2.13.19 Python/3.11.5 Linux/5.15.0-1044-aws exe/x86_64.ubuntu.20 prompt/off
+
+ubuntu@AWS-Server:~$ aws configure
+AWS Access Key ID [None]: AK***********
+AWS Secret Access Key [None]: Wi************
+Default region name [None]: us-east-1
+Default output format [None]: json
+
+# Create an S3 bucket in AWS
+ubuntu@AWS-Server:~$ aws s3api create-bucket --bucket s3-new-bash-course --region us-east-1
+{
+    "Location": "/s3-new-bash-course"
+}
+################################################
+######## Now, let's automated it  #######
+
+ubuntu@AWS-Server:~$ sudo vim /etc/crontab
+*/2 * * * * root /home/ubuntu/backup-script.sh
+
+## check the aws
+# Every 2 mins, we will take a backup and upload it to S3
+
+
+
+## Delete the schedule
+ubuntu@AWS-Server:~$ sudo vim /etc/crontab
+
+
+ubuntu@AWS-Server:~$ aws s3 rb s3://s3-new-bash-course --force
+delete: s3://s3-new-bash-course/file-backup-09-18-23_16_40_01.tar.gz
+delete: s3://s3-new-bash-course/file-backup-09-18-23_15_22_20.tar.gz
+delete: s3://s3-new-bash-course/file-backup-09-18-23_16_44_01.tar.gz
+delete: s3://s3-new-bash-course/file-backup-09-18-23_16_42_01.tar.gz
+remove_bucket: s3-new-bash-course
+

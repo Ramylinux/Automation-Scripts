@@ -1,0 +1,5 @@
+# Min   Hour    DoM     M       DoW     Comm
+  00    18      *       *       *        /bin/Auto-Backup-Segment-Lam.sh
+  00    20      *       *       *        /bin/Auto-Backup-vpn-Saab.sh
+  00    22      *       *       */4      /bin/Auto-Remove-Dir.sh
+~                                                                             

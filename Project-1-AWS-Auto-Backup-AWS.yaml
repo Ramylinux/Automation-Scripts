@@ -1,0 +1,97 @@
+#!/bin/bash
+
+time=$(date +%m-%d-%y_%H_%M_%S)
+Backup_file=$1
+Dest=/home/ubuntu/backup
+filename=file-backup-$time.tar.gz
+LOG_FILE="/home/ubuntu/backup/logfile.log"
+
+if [ -z "$Backup_file"  ]
+then
+    echo "Please, Enter the directory that you want to backup " | tee -a "$LOG_FILE"
+    exit 2
+fi
+
+if [ $? -ne 2 ]
+  then
+  if [ -f $filename ]
+  then
+      echo "Error file $filename already exists!" | tee -a "$LOG_FILE"
+  else
+      tar -czvf "$Dest/$filename" "$Backup_file" 
+      echo "Backup completed successfully. Backup file: $Dest/$filename " | tee -a "$LOG_FILE"
+  fi
+fi
+
+
+
+
+
+############# Script 2 #############
+
+ubuntu@AWS-Server:~$ vim backup-script.sh
+---
+#!/bin/bash
+
+time=$(date +%m-%d-%y_%H_%M_%S)
+Backup_file=/home/ubuntu/bash
+Dest=/home/ubuntu/backup
+filename=file-backup-$time.tar.gz
+LOG_FILE="/home/ubuntu/backup/logfile.log"
+
+S3_BUCKET="s3-new-bash-course"
+FILE_TO_UPLOAD="$Dest/$filename"
+
+
+if ! command -v aws &> /dev/null; then
+  echo "AWS CLI is not installed. Please install it first."
+  exit 2
+fi
+
+if [ $? -ne 2 ]
+  then
+  if [ -f $filename ]
+  then
+      echo "Error file $filename already exist!" | tee -a "$LOG_FILE"
+  else
+      tar -czvf "$Dest/$filename" "$Backup_file" 
+      echo "Backup completed successfully. Backup file: $Dest/$filename " | tee -a "$LOG_FILE"
+      echo
+      aws s3 cp "$FILE_TO_UPLOAD" "s3://$S3_BUCKET/"
+  fi
+fi
+
+if [ $? -eq 0 ]; then
+  echo
+  echo "File uploaded successfully to the S3 bucket: $S3_BUCKET"
+else
+  echo "File upload to S3 failed."
+fi
+---
+
+
+
+
+
+######## Now, let's automated it  #######
+
+ubuntu@AWS-Server:~$ sudo vim /etc/crontab
+*/2 * * * * root /home/ubuntu/backup-script.sh
+
+## check the aws
+# Every 2 mins, we will take a backup and upload it to S3
+
+
+
+## Delete the schedule
+ubuntu@AWS-Server:~$ sudo vim /etc/crontab
+
+
+ubuntu@AWS-Server:~$ aws s3 rb s3://s3-new-bash-course --force
+delete: s3://s3-new-bash-course/file-backup-09-18-23_16_40_01.tar.gz
+delete: s3://s3-new-bash-course/file-backup-09-18-23_15_22_20.tar.gz
+delete: s3://s3-new-bash-course/file-backup-09-18-23_16_44_01.tar.gz
+delete: s3://s3-new-bash-course/file-backup-09-18-23_16_42_01.tar.gz
+remove_bucket: s3-new-bash-course
+
+

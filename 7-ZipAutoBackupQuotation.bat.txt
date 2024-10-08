@@ -1,0 +1,18 @@
+
+##########################################
+############  Install 7-Zip ##############
+##########################################
+
+echo on
+
+for /f "tokens=3,2,4 delims=/- " %%x in ("%date%") do set d=%%y-%%x-%%z
+set data=%d%
+
+C:
+cd c:\"Program Files\7-Zip"
+
+.\7z.exe a -tzip D:\QuotationBackup\Auto_Quottation_BackupJob_%d%.zip D:\QuotationBackup\autobackup\*
+
+
+echo Done!
+
