@@ -1,0 +1,79 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 994926498 (0x3b4d5fa2)
+        Signature Algorithm: md5WithRSAEncryption
+        Issuer: CN=ca.does.not.exists, C=US, ST=123, L=sads, O=Saab Factory, OU=9e9d6d47eb8cb0d7/dnQualifier=certificateAuthority
+        Validity
+            Not Before: Jun  6 09:42:15 2010 GMT
+            Not After : Jun  3 09:42:15 2020 GMT
+        Subject: C=US, ST=123, O=Saab Factory, OU=9e9d6d47eb8cb0d7, CN=backup-auto/dnQualifier=client
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+            RSA Public Key: (1536 bit)
+                Modulus (1536 bit):
+                    00:ae:bf:3e:f4:5c:2a:3b:2f:55:4f:04:16:8b:3d:
+                    26:d0:bb:a7:d3:2e:72:fa:6b:a1:10:e9:eb:cc:96:
+                    dd:ce:b8:be:0a:19:22:76:64:b5:05:d1:d5:4a:e5:
+                    59:ac:42:9b:70:3b:8a:c3:87:57:64:1c:fe:44:0d:
+                    6f:0c:32:d9:02:9c:13:26:fe:c6:4f:28:b1:c2:11:
+                    6f:54:e1:3f:90:d2:c6:75:8d:df:fb:c4:88:56:b2:
+                    04:4a:18:81:e0:a5:61:bb:f2:f6:50:42:62:ab:81:
+                    27:7e:c7:f4:88:8f:25:a5:8d:43:ca:37:fc:42:3f:
+                    ac:dc:c9:35:54:d1:99:cd:a2:bb:b3:ec:a5:96:64:
+                    f4:89:c7:d2:14:eb:a0:2d:a2:d4:bb:86:32:04:a4:
+                    1b:c3:d6:cd:26:55:80:75:04:91:6a:b9:3e:2d:d2:
+                    f4:b1:02:56:7f:74:80:06:e5:17:de:f5:8f:35:b0:
+                    90:25:5e:43:70:c5:42:7d:ba:81:2a:5a:1d
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            Netscape Cert Type: 
+                SSL Client
+            Netscape Comment: 
+                OpenSSL Generated Certificate
+            X509v3 Subject Key Identifier: 
+                00:54:B6:B6:2E:86:82:20:B0:BD:E6:7B:F5:DD:BC:E3:EE:0D:E4:4D
+            X509v3 Authority Key Identifier: 
+                keyid:D0:D1:67:54:CB:58:3D:F2:D3:34:C9:30:E4:BF:F1:9C:7B:8B:AA:1E
+                DirName:/CN=ca.does.not.exists/C=US/ST=123/L=sads/O=Saab Factory/OU=9e9d6d47eb8cb0d7/dnQualifier=certificateAuthority
+                serial:C4:4C:92:0D:3F:FA:CE:FC
+
+    Signature Algorithm: md5WithRSAEncryption
+        8a:d9:8d:e8:ca:fb:b6:d3:f5:53:ab:59:84:3c:57:6e:10:a4:
+        cf:a1:fa:1f:ce:cb:af:5b:ec:44:96:d3:29:ec:8f:84:28:e6:
+        59:04:99:50:c9:6a:50:85:b2:00:63:26:b1:ea:f7:2f:99:13:
+        d1:e1:48:ee:ce:c8:a5:c6:e5:6c:c0:21:81:aa:36:fd:ca:d1:
+        2a:2b:da:41:0e:0e:1e:65:7e:eb:7c:6b:16:c6:e9:c5:b1:86:
+        56:70:bf:50:a8:b5:55:50:f0:78:40:97:bf:53:ba:80:59:51:
+        29:3a:05:a2:7a:a0:ac:28:44:24:8b:be:62:ce:d5:f4:d3:b4:
+        6b:39:f7:da:52:27:73:04:5e:c0:38:8d:42:dc:a6:96:55:68:
+        4f:bd:fe:36:55:26:fa:e4:dd:00:d2:b0:ff:4b:b2:88:08:e4:
+        c6:d8:2b:3f:e6:ab:75:e1:1e:be:e5:ef:dc:1d:25:96:c4:93:
+        0f:c6:e4:48:a8:9d:c9:33:ea:3c:45:ad
+-----BEGIN CERTIFICATE-----
+MIIERzCCA3CgAwIBAgIEO01fojANBgkqhkiG9w0BAQQFADCBmDEbMBkGA1UEAxMS
+Y2EuZG9lcy5ub3QuZXhpc3RzMQswCQYDVQQGEwJVUzEMMAoGA1UECBMDMTIzMQ0w
+CwYDVQQHEwRzYWRzMRUwEwYDVQQKEwxTYWFiIEZhY3RvcnkxGTAXBgNVBAsTEDll
+OWQ2ZDQ3ZWI4Y2IwZDcxHTAbBgNVBC4TFGNlcnRpZmljYXRlQXV0aG9yaXR5MB4X
+DTEwMDYwNjA5NDIxNVoXDTIwMDYwMzA5NDIxNVowdDELMAkGA1UEBhMCVVMxDDAK
+BgNVBAgTAzEyMzEVMBMGA1UEChMMU2FhYiBGYWN0b3J5MRkwFwYDVQQLExA5ZTlk
+NmQ0N2ViOGNiMGQ3MRQwEgYDVQQDEwtiYWNrdXAtYXV0bzEPMA0GA1UELhMGY2xp
+ZW50MIHfMA0GCSqGSIb3DQEBAQUAA4HNADCByQKBwQCuvz70XCo7L1VPBBaLPSbQ
+u6fTLnL6a6EQ6evMlt3OuL4KGSJ2ZLUF0dVK5VmsQptwO4rDh1dkHP5EDW8MMtkC
+nBMm/sZPKLHCEW9U4T+Q0sZ1jd/7xIhWsgRKGIHgpWG78vZQQmKrgSd+x/SIjyWl
+jUPKN/xCP6zcyTVU0ZnNoruz7KWWZPSJx9IU66AtotS7hjIEpBvD1s0mVYB1BJFq
+uT4t0vSxAlZ/dIAG5Rfe9Y81sJAlXkNwxUJ9uoEqWh0CAwEAAaOCAT8wggE7MAkG
+A1UdEwQCMAAwEQYJYIZIAYb4QgEBBAQDAgeAMCwGCWCGSAGG+EIBDQQfFh1PcGVu
+U1NMIEdlbmVyYXRlZCBDZXJ0aWZpY2F0ZTAdBgNVHQ4EFgQUAFS2ti6GgiCwveZ7
+9d284+4N5E0wgc0GA1UdIwSBxTCBwoAU0NFnVMtYPfLTNMkw5L/xnHuLqh6hgZ6k
+gZswgZgxGzAZBgNVBAMTEmNhLmRvZXMubm90LmV4aXN0czELMAkGA1UEBhMCVVMx
+DDAKBgNVBAgTAzEyMzENMAsGA1UEBxMEc2FkczEVMBMGA1UEChMMU2FhYiBGYWN0
+b3J5MRkwFwYDVQQLExA5ZTlkNmQ0N2ViOGNiMGQ3MR0wGwYDVQQuExRjZXJ0aWZp
+Y2F0ZUF1dGhvcml0eYIJAMRMkg0/+s78MA0GCSqGSIb3DQEBBAUAA4HBAIrZjejK
++7bT9VOrWYQ8V24QpM+h+h/Oy69b7ESW0ynsj4Qo5lkEmVDJalCFsgBjJrHq9y+Z
+E9HhSO7OyKXG5WzAIYGqNv3K0Sor2kEODh5lfut8axbG6cWxhlZwv1CotVVQ8HhA
+l79TuoBZUSk6BaJ6oKwoRCSLvmLO1fTTtGs599pSJ3MEXsA4jULcppZVaE+9/jZV
+Jvrk3QDSsP9LsogI5MbYKz/mq3XhHr7l79wdJZbEkw/G5Eionckz6jxFrQ==
+-----END CERTIFICATE-----
