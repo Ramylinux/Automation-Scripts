@@ -133,7 +133,7 @@ bash
 <div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">crontab -e
 </code></div>
 
-# Add the following line to schedule the backup at midnight every day:
+### Add the following line to schedule the backup at midnight every day:
 
 bash
 
