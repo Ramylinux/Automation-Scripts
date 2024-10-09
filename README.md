@@ -76,13 +76,9 @@ yaml
 <div class="overflow-y-auto p-4" dir="ltr">
 <code class="!whitespace-pre hljs language-yaml">
 <span class="hljs-attr">version:</span> <span class="hljs-string">'2.0'</span>
-<span class="hljs-attr">tasks:</span>
-  <span class="hljs-bullet">-</span>
-   <span class="hljs-attr">name:</span> 
+   <span class="hljs-attr">actions:</span> 
    <span class="hljs-string">"Upload backup to S3"</span>
-    <span class="hljs-attr">actions:</span>
-      <span class="hljs-bullet">-</span>
-   <span class="hljs-attr">name:</span>
+    <span class="hljs-attr">name:</span>
    <span class="hljs-string">"Project-1-AWS-Auto-Backup-AWS-Script 2"</span>
    <span class="hljs-attr">script:</span>
 
