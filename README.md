@@ -73,23 +73,59 @@ Here's a sample YAML script to upload files to the S3 bucket.
 
 yaml
 
-<div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-yaml"><span class="hljs-attr">version:</span> <span class="hljs-string">'1.0'</span>
+<div class="overflow-y-auto p-4" dir="ltr">
+<code class="!whitespace-pre hljs language-yaml">
+<span class="hljs-attr">version:</span> <span class="hljs-string">'2.0'</span>
 <span class="hljs-attr">tasks:</span>
-  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">"Upload backup to S3"</span>
+  <span class="hljs-bullet">-</span>
+   <span class="hljs-attr">name:</span> 
+   <span class="hljs-string">"Upload backup to S3"</span>
     <span class="hljs-attr">actions:</span>
-      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">"backup"</span>
-        <span class="hljs-attr">script:</span> <span class="hljs-string">|
-          #!/bin/bash
-          BACKUP_FILE="/path/to/backup/file"
-          BUCKET_NAME="your-s3-bucket-name"
-</span>          
-          <span class="hljs-string">if</span> [ <span class="hljs-string">-f</span> <span class="hljs-string">"$BACKUP_FILE"</span> ]<span class="hljs-string">;</span> <span class="hljs-string">then</span>
-              <span class="hljs-string">aws</span> <span class="hljs-string">s3</span> <span class="hljs-string">cp</span> <span class="hljs-string">"$BACKUP_FILE"</span> <span class="hljs-string">"s3://$BUCKET_NAME/"</span>
-              <span class="hljs-string">echo</span> <span class="hljs-string">"Backup uploaded successfully."</span>
-          <span class="hljs-string">else</span>
-              <span class="hljs-string">echo</span> <span class="hljs-string">"Backup file not found."</span>
-          <span class="hljs-string">fi</span>
-</code></div>
+      <span class="hljs-bullet">-</span>
+   <span class="hljs-attr">name:Project-1-AWS-Auto-Backup-AWS-Script 2</span>
+   <span class="hljs-string">"backup"</span>
+   <span class="hljs-attr">script:</span>
+
+<span class="hljs-string">|
+#!/bin/bash
+time=$(date +%m-%d-%y_%H_%M_%S)
+Backup_file=/home/ubuntu/bash
+Dest=/home/ubuntu/backup
+filename=file-backup-$time.tar.gz
+LOG_FILE="/home/ubuntu/backup/logfile.log"
+
+S3_BUCKET="s3-new-bash-course"
+FILE_TO_UPLOAD="$Dest/$filename"
+
+
+if ! command -v aws &> /dev/null; then
+  echo "AWS CLI is not installed. Please install it first."
+  exit 2
+fi
+
+if [ $? -ne 2 ]
+  then
+  if [ -f $filename ]
+  then
+      echo "Error file $filename already exist!" | tee -a "$LOG_FILE"
+  else
+      tar -czvf "$Dest/$filename" "$Backup_file" 
+      echo "Backup completed successfully. Backup file: $Dest/$filename " | tee -a "$LOG_FILE"
+      echo
+      aws s3 cp "$FILE_TO_UPLOAD" "s3://$S3_BUCKET/"
+  fi
+fi
+
+if [ $? -eq 0 ]; then
+  echo
+  echo "File uploaded successfully to the S3 bucket: $S3_BUCKET"
+else
+  echo "File upload to S3 failed."
+fi
+</span>
+
+</code>
+</div>
 
 ### 5. Automating the Backup with EC2
 
